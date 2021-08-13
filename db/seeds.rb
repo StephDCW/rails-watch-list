@@ -18,6 +18,9 @@ api = JSON.parse(url)
 #                rating: json['results'][count]['vote_average'].to_f)
 #   count += 1
 # end
+
+List.destroy_all
+Bookmark.destroy_all
 Movie.destroy_all
 results = api['results']
 results.each do |movie|
