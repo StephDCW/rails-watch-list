@@ -1,9 +1,11 @@
 <h1><%= @list.name %></h1>
+<%#= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
 <br>
 <br>
 <ul>
 <% @list.bookmarks.each do |b| %>
 <li><%= b.movie[:title] %></li>
+<li><%= image_tag b.movie.poster_url, width: 300 %></li>
 <li><%= b.movie[:overview] %></li>
 <li><%= b.comment %></li>
 <%= link_to "Delete", bookmark_path(b), method: :delete, class: 'btn btn-primary' %>

@@ -1,13 +1,22 @@
-<div class="banner">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1502033491742-0e11fb057e16\?ixlib\=rb-1.2.1\&ixid\=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8\&auto\=format\&fit\=crop\&w\=1189\&q\=80)">
+  <div class="container">
+    <h1><strong>All Lists</strong></h1>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+<%#= cl_image_tag("t4jaxzhqbcpfqy0a36es"), width: 400, height: 300, crop: :fill) %>
 
-<h1>All Lists</h1>
 
-
-<ul>
-  <% @lists.each do |list| %>
-  <li><%= link_to list.name, list_path(list) %></li>
+<% @lists.each do |list| %>
+<% if list.photo.attached? %>
+<%= cl_image_tag list.photo.key, height: 300, crop: :fill %>
   <% end %>
-</ul>
+  <div class="card-list-infos">
+    <div>
+  <li><%= link_to list.name, list_path(list) %></li>
+    </div>
+  </div>
+</div>
+  <% end %>
 
 <%= link_to "Create a list", new_list_path, class: 'btn btn-primary' %>
-</div>
