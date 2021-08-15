@@ -1,3 +1,4 @@
+<body class="bg-black">
 <div class="position-relative">
   <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key) : asset_path('red_projector.jpg') %>)">
     <h1><%= @list.name %></h1>
@@ -65,3 +66,4 @@
   </div>
 </div>
 <%= render 'bookmarks/new', list: @list %>
+</body>
