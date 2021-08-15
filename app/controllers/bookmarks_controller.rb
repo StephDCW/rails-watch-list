@@ -1,7 +1,6 @@
 class BookmarksController < ApplicationController
   def new
     @list = List.find(params[:list_id])
-    @movies = Movie.all
     @bookmark = Bookmark.new
   end
 
